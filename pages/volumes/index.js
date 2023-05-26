@@ -9,12 +9,10 @@ export default function Volumes() {
   function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
   }
-
   function handleRandomVolume() {
     const handleVolume = getRandomElement(volumes);
     router.push(`/volumes/${handleVolume.slug}`);
   }
-
   return (
     <>
       <Head>
@@ -23,13 +21,11 @@ export default function Volumes() {
       <h1>The Lord of the Rings</h1>
       <p>{introduction}</p>
       <ul>
-        {volumes.map((volume) => {
-          return (
-            <li key={volume.slug}>
-              <Link href={`/volumes/${volume.slug}`}> {volume.title}</Link>
-            </li>
-          );
-        })}
+        {volumes.map((volume) => (
+          <li key={volume.slug}>
+            <Link href={`/volumes/${volume.slug}`}> {volume.title}</Link>
+          </li>
+        ))}
       </ul>
       <button onClick={handleRandomVolume}>Random Volume</button>
     </>
